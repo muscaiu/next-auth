@@ -1,14 +1,14 @@
-import { TRPCError } from "@trpc/server";
-import jwt from "jsonwebtoken";
-import { prisma } from "../lib/prisma";
-import { cookies } from "next/headers";
+import { TRPCError } from '@trpc/server';
+import jwt from 'jsonwebtoken';
+import { prisma } from '../lib/prisma';
+import { cookies } from 'next/headers';
 
 export const deserializeUser = async () => {
   const cookieStore = cookies();
   try {
     let token;
-    if (cookieStore.get("token")) {
-      token = cookieStore.get("token")?.value;
+    if (cookieStore.get('token')) {
+      token = cookieStore.get('token')?.value;
     }
     const notAuthenticated = {
       user: null,
@@ -36,7 +36,7 @@ export const deserializeUser = async () => {
     };
   } catch (err: any) {
     throw new TRPCError({
-      code: "INTERNAL_SERVER_ERROR",
+      code: 'INTERNAL_SERVER_ERROR',
       message: err.message,
     });
   }

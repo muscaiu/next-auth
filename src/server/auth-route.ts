@@ -3,13 +3,13 @@ import {
   CreateUserInput,
   loginUserSchema,
   LoginUserInput,
-} from "@/lib/user-schema";
+} from '@/lib/user-schema';
 import {
   loginHandler,
   logoutHandler,
   registerHandler,
-} from "./auth-controller";
-import { protectedProcedure, pubicProcedure, t } from "@/utils/trpc-server";
+} from './auth-controller';
+import { protectedProcedure, pubicProcedure, t } from '@/utils/trpc-server';
 
 const authRouter = t.router({
   registerUser: pubicProcedure
